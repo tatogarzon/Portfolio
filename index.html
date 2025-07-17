@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gonzalo Garzon – Professional Portfolio</title>
+  <link rel="canonical" href="https://gonzalogarzon.com" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <!-- Header with logo as home button -->
+  <header class="bg-white shadow-md p-4">
+    <div class="container mx-auto flex items-center justify-center space-x-6">
+      <!-- Logo icon linking to home -->
+      <button id="tab-intro" aria-label="Home" class="focus:outline-none">
+        <!-- Placeholder for suitcase logo -->
+        <img src="assets/suitcase-logo.png" alt="Business Briefcase Logo" class="h-12 w-12 hover:opacity-80" />
+      </button>
+      <!-- Navigation tabs -->
+      <nav>
+        <ul class="flex space-x-4">
+          <li><button id="tab-post-sale" class="hover:text-blue-500 focus:outline-none">Post-Sales Engineer</button></li>
+          <li><button id="tab-purchasing" class="hover:text-blue-500 focus:outline-none">Purchasing Assistant</button></li>
+          <li><button id="tab-site-manager" class="hover:text-blue-500 focus:outline-none">Site Manager</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto mt-12">
+    <!-- Intro Section -->
+    <section id="intro" class="tab-content bg-white rounded-lg shadow p-6">
+      <h2 class="text-2xl font-semibold mb-4 text-center">Welcome</h2>
+      <p class="mb-4 text-center">I’m <strong>Gonzalo Garzon</strong>, a Civil Engineer with over five years of experience in construction project management, post-sales support, and procurement coordination.</p>
+      <p class="text-center mb-4">This portfolio highlights my professional journey through three key roles:</p>
+      <ul class="list-disc list-inside mt-4 space-y-2 inline-block text-left">
+        <li>Post-Sales Engineer in high-end residential projects</li>
+        <li>Purchasing Assistant optimizing materials and supplier selection</li>
+        <li>Site Manager leading multidisciplinary construction teams</li>
+      </ul>
+    </section>
+
+    <!-- Post-Sales Engineer Section -->
+    <section id="post-sale" class="tab-content hidden bg-white rounded-lg shadow p-6">
+      <h2 class="text-xl font-semibold mb-4">Post-Sales Engineer</h2>
+      <p class="mb-4">Responsible for warranty management, coordinating repairs, and ensuring client satisfaction in luxury residential developments.</p>
+      <!-- Example of embedding an image -->
+      <!-- <img src="/assets/post-sale-project.jpg" alt="Post-Sales Project" class="mb-4 rounded" /> -->
+      <!-- Example of embedding a video -->
+      <!-- <video controls class="mb-4 w-full max-w-lg">
+        <source src="/assets/post-sale-demo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video> -->
+      <ul class="list-disc list-inside space-y-2 mt-2">
+        <li>Coordinated maintenance teams and specialized contractors.</li>
+        <li>Managed inspection reports and repair schedules.</li>
+        <li>Maintained direct communication with homeowners and building management.</li>
+      </ul>
+    </section>
+
+    <!-- Purchasing Assistant Section -->
+    <section id="purchasing" class="tab-content hidden bg-white rounded-lg shadow p-6">
+      <h2 class="text-xl font-semibold mb-4">Purchasing Assistant</h2>
+      <p class="mb-4">Supported procurement activities by sourcing materials, analyzing supplier options, and optimizing inventory for construction projects.</p>
+      <!-- Placeholder for images/videos -->
+      <!-- <img src="/assets/purchasing-dashboard.png" alt="Purchasing Dashboard" class="mb-4 rounded" /> -->
+      <ul class="list-disc list-inside space-y-2 mt-2">
+        <li>Prepared RFQs and conducted comparative supplier analysis.</li>
+        <li>Monitored delivery schedules and managed lead times.</li>
+        <li>Maintained and updated the materials database.</li>
+      </ul>
+    </section>
+
+    <!-- Site Manager Section -->
+    <section id="site-manager" class="tab-content hidden bg-white rounded-lg shadow p-6">
+      <h2 class="text-xl font-semibold mb-4">Site Manager</h2>
+      <p class="mb-4">Led on-site operations for residential building projects, coordinating trades and ensuring quality, safety, and timely completion.</p>
+      <!-- Media placeholders -->
+      <!-- <img src="/assets/site-manager-team.jpg" alt="Site Team" class="mb-4 rounded" /> -->
+      <!-- <video controls class="mb-4 w-full max-w-lg">
+        <source src="/assets/site-manager-tour.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video> -->
+      <ul class="list-disc list-inside space-y-2 mt-2">
+        <li>Planned and delegated daily construction tasks.</li>
+        <li>Oversaw quality control and compliance with project timelines.</li>
+        <li>Managed procurement and on-site inventory.</li>
+        <li>Implemented safety protocols and risk mitigation strategies.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="bg-white shadow-inner p-4 mt-16">
+    <div class="container mx-auto text-center text-sm text-gray-600">
+      <p>© 2025 Gonzalo Garzon. All rights reserved.</p>
+      <p>Contact: <a href="mailto:tato_garzon@hotmail.com" class="hover:text-blue-500">tato_garzon@hotmail.com</a> | <a href="tel:+61418827267" class="hover:text-blue-500">+61 418 827 267</a></p>
+    </div>
+  </footer>
+
+  <!-- Tab switching script -->
+  <script>
+    const tabs = ['intro', 'post-sale', 'purchasing', 'site-manager'];
+    tabs.forEach(tab => {
+      document.getElementById('tab-' + tab).addEventListener('click', () => {
+        tabs.forEach(t => document.getElementById(t).classList.add('hidden'));
+        document.getElementById(tab).classList.remove('hidden');
+      });
+    });
+  </script>
+</body>
+</html>
