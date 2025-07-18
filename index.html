@@ -1,114 +1,183 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gonzalo Garzon – Professional Portfolio</title>
-  <link rel="canonical" href="https://gonzalogarzon.com" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+    h1,h2,h3 { font-family: 'Merriweather', serif; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    /* Parallax backgrounds */
+    .parallax { background-attachment: fixed; }
+    /* Scroll animations */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .fade-in.appear { opacity: 1; transform: translateY(0); }
+    /* Dark mode */
+    .dark body { background-color: #1a202c; color: #e2e8f0; }
+    .dark header { background-color: #2d3748; }
+    .dark footer { background-color: #2d3748; }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
-  <!-- Header with logo as home button -->
-  <header class="bg-white shadow-md p-4">
-    <div class="container mx-auto flex items-center justify-between px-4">
-      <!-- Logo icon linking to home -->
-      <button id="tab-intro" aria-label="Home" class="focus:outline-none">
-        <!-- Placeholder for suitcase logo -->
-        <img src="suitcase-logo.png" alt="Business Briefcase Logo" class="h-12 w-12 object-contain" />
-      </button>
-      <!-- Navigation tabs -->
+<body class="flex flex-col h-full bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+  <!-- Header with tabs and dark toggle -->
+  <header class="bg-blue-900 text-white dark:bg-gray-800">
+    <div class="container mx-auto flex items-center justify-between p-4">
+      <div class="flex items-center space-x-4">
+        <button id="tab-intro-btn" class="focus:outline-none text-white" aria-label="Home">
+          <img src="./suitcase-logo.png" alt="Home" class="h-10 w-10 object-contain" />
+        </button>
+      </div>
       <nav>
-        <ul class="flex space-x-4">
-          <li><button id="tab-post-sale" class="hover:text-blue-500 focus:outline-none">Post-Sales Engineer</button></li>
-          <li><button id="tab-purchasing" class="hover:text-blue-500 focus:outline-none">Purchasing Assistant</button></li>
-          <li><button id="tab-site-manager" class="hover:text-blue-500 focus:outline-none">Site Manager</button></li>
+        <ul id="menu-btns" class="flex space-x-6">
+          <li><button id="tab-post-btn" class="hover:text-blue-300 focus:outline-none text-gray-200">Post-Sales Engineer</button></li>
+          <li><button id="tab-purchasing-btn" class="hover:text-blue-300 focus:outline-none text-gray-200">Purchasing Assistant</button></li>
+          <li><button id="tab-site-btn" class="hover:text-blue-300 focus:outline-none text-gray-200">Site Manager</button></li>
         </ul>
       </nav>
+      <button id="dark-toggle" class="ml-4 focus:outline-none text-gray-200 hover:text-white" aria-label="Toggle Dark Mode">🌓</button>
     </div>
   </header>
 
-  <main class="container mx-auto mt-12">
-    <!-- Intro Section -->
-    <section id="intro" class="tab-content bg-white rounded-lg shadow p-6">
-      <h2 class="text-2xl font-semibold mb-4 text-center">Welcome</h2>
-      <p class="mb-4 text-center">I’m <strong>Gonzalo Garzon</strong>, a Civil Engineer with over five years of experience in construction project management, post-sales support, and procurement coordination.</p>
-      <p class="text-center mb-4">This portfolio highlights my professional journey through three key roles:</p>
-      <ul class="list-disc list-inside mt-4 space-y-2 inline-block text-left">
-        <li>Post-Sales Engineer in high-end residential projects</li>
-        <li>Purchasing Assistant optimizing materials and supplier selection</li>
-        <li>Site Manager leading multidisciplinary construction teams</li>
-      </ul>
+  <!-- Main Content -->
+  <main class="flex-1 overflow-auto pt-16">
+    <!-- Page 1: Intro -->
+    <section id="tab-intro" class="tab-content active container mx-auto py-16 px-4 text-center">
+      <h1 class="text-4xl font-semibold mb-4">Welcome</h1>
+      <p class="max-w-2xl mx-auto text-lg mb-8 fade-in">I’m <strong>Gonzalo Garzon</strong>, a Civil Engineer with over five years of experience in construction project management, post-sales support, and procurement coordination.</p>
+      <div class="space-y-8 max-w-xl mx-auto">
+        <div class="fade-in">
+          <h2 id="link-post-btn" class="text-2xl font-semibold hover:text-blue-500 cursor-pointer">Post-Sales Engineer</h2>
+          <p class="text-gray-600 dark:text-gray-300">Managed warranty processes, coordinated repair teams, and ensured client satisfaction in luxury residential developments.</p>
+        </div>
+        <div class="fade-in">
+          <h2 id="link-purchasing-btn" class="text-2xl font-semibold hover:text-blue-500 cursor-pointer">Purchasing Assistant</h2>
+          <p class="text-gray-600 dark:text-gray-300">Sourced materials, conducted supplier analysis, and optimized inventory for construction projects.</p>
+        </div>
+        <div class="fade-in">
+          <h2 id="link-site-btn" class="text-2xl font-semibold hover:text-blue-500 cursor-pointer">Site Manager</h2>
+          <p class="text-gray-600 dark:text-gray-300">Led on-site teams, enforced safety protocols, and ensured project milestones were met on time and within budget.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- Post-Sales Engineer Section -->
-    <section id="post-sale" class="tab-content hidden bg-white rounded-lg shadow p-6">
-      <h2 class="text-xl font-semibold mb-4">Post-Sales Engineer</h2>
-      <p class="mb-4">Responsible for warranty management, coordinating repairs, and ensuring client satisfaction in luxury residential developments.</p>
-      <!-- Example of embedding an image -->
-      <!-- <img src="/assets/post-sale-project.jpg" alt="Post-Sales Project" class="mb-4 rounded" /> -->
-      <!-- Example of embedding a video -->
-      <!-- <video controls class="mb-4 w-full max-w-lg">
-        <source src="/assets/post-sale-demo.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video> -->
-      <ul class="list-disc list-inside space-y-2 mt-2">
-        <li>Coordinated maintenance teams and specialized contractors.</li>
-        <li>Managed inspection reports and repair schedules.</li>
-        <li>Maintained direct communication with homeowners and building management.</li>
-      </ul>
+    <!-- Page 2: Post-Sales Engineer -->
+    <section id="tab-post" class="tab-content">
+      <div class="section-hero min-h-screen bg-cover bg-center parallax" style="background-image: url('./post-sale-bg.jpg');">
+        <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div class="text-center fade-in">
+            <h2 class="text-5xl font-semibold text-white">Post-Sales Engineer</h2>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-200">Managed warranty processes, coordinated repair teams, and ensured client satisfaction in luxury residential developments.</p>
+          </div>
+        </div>
+      </div>
+      <div class="container mx-auto py-12 px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <img src="./post-sale1.jpg" alt="Project detail" class="rounded shadow fade-in" />
+          <img src="./post-sale2.jpg" alt="Site visit" class="rounded shadow fade-in" />
+          <img src="./post-sale3.jpg" alt="Client meeting" class="rounded shadow fade-in" />
+        </div>
+        <ul class="list-disc list-inside text-blue-600 space-y-2 fade-in">
+          <li>Warranty Report: <a href="./files/warranty-report.pdf" target="_blank" class="hover:underline">Download PDF</a></li>
+          <li>Inspection Schedule: <a href="./files/inspection-schedule.xlsx" target="_blank" class="hover:underline">Download Excel</a></li>
+        </ul>
+      </div>
     </section>
 
-    <!-- Purchasing Assistant Section -->
-    <section id="purchasing" class="tab-content hidden bg-white rounded-lg shadow p-6">
-      <h2 class="text-xl font-semibold mb-4">Purchasing Assistant</h2>
-      <p class="mb-4">Supported procurement activities by sourcing materials, analyzing supplier options, and optimizing inventory for construction projects.</p>
-      <!-- Placeholder for images/videos -->
-      <!-- <img src="/assets/purchasing-dashboard.png" alt="Purchasing Dashboard" class="mb-4 rounded" /> -->
-      <ul class="list-disc list-inside space-y-2 mt-2">
-        <li>Prepared RFQs and conducted comparative supplier analysis.</li>
-        <li>Monitored delivery schedules and managed lead times.</li>
-        <li>Maintained and updated the materials database.</li>
-      </ul>
+    <!-- Page 3: Purchasing Assistant -->
+    <section id="tab-purchasing" class="tab-content">
+      <div class="section-hero min-h-screen bg-cover bg-center parallax" style="background-image: url('./purchasing-bg.jpg');">
+        <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div class="text-center fade-in">
+            <h2 class="text-5xl font-semibold text-white">Purchasing Assistant</h2>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-200">Sourced materials, conducted supplier analysis, and optimized inventory for construction projects.</p>
+          </div>
+        </div>
+      </div>
+      <div class="container mx-auto py-12 px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <img src="./purchasing1.jpg" alt="RFQ" class="rounded shadow fade-in" />
+          <img src="./purchasing2.jpg" alt="Supplier meeting" class="rounded shadow fade-in" />
+          <img src="./purchasing3.jpg" alt="Materials stock" class="rounded shadow fade-in" />
+        </div>
+        <ul class="list-disc list-inside text-blue-600 space-y-2 fade-in">
+          <li>Purchase Orders: <a href="./files/purchase-orders.pdf" target="_blank" class="hover:underline">Download PDF</a></li>
+          <li>Supplier Analysis: <a href="./files/supplier-analysis.xlsx" target="_blank" class="hover:underline">Download Excel</a></li>
+        </ul>
+      </div>
     </section>
 
-    <!-- Site Manager Section -->
-    <section id="site-manager" class="tab-content hidden bg-white rounded-lg shadow p-6">
-      <h2 class="text-xl font-semibold mb-4">Site Manager</h2>
-      <p class="mb-4">Led on-site operations for residential building projects, coordinating trades and ensuring quality, safety, and timely completion.</p>
-      <!-- Media placeholders -->
-      <!-- <img src="/assets/site-manager-team.jpg" alt="Site Team" class="mb-4 rounded" /> -->
-      <!-- <video controls class="mb-4 w-full max-w-lg">
-        <source src="/assets/site-manager-tour.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video> -->
-      <ul class="list-disc list-inside space-y-2 mt-2">
-        <li>Planned and delegated daily construction tasks.</li>
-        <li>Oversaw quality control and compliance with project timelines.</li>
-        <li>Managed procurement and on-site inventory.</li>
-        <li>Implemented safety protocols and risk mitigation strategies.</li>
-      </ul>
+    <!-- Page 4: Site Manager -->
+    <section id="tab-site" class="tab-content mb-16">
+      <div class="section-hero min-h-screen bg-cover bg-center parallax" style="background-image: url('./site-manager-bg.jpg');">
+        <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div class="text-center fade-in">
+            <h2 class="text-5xl font-semibold text-white">Site Manager</h2>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-200">Led on-site teams, enforced safety protocols, and ensured project milestones were met on time and within budget.</p>
+          </div>
+        </div>
+      </div>
+      <div class="container mx-auto py-12 px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <img src="./site1.jpg" alt="Team briefing" class="rounded shadow fade-in" />
+          <img src="./site2.jpg" alt="Quality control" class="rounded shadow fade-in" />
+          <img src="./site3.jpg" alt="Safety inspection" class="rounded shadow fade-in" />
+        </div>
+        <ul class="list-disc list-inside text-blue-600 space-y-2 fade-in">
+          <li>Progress Report: <a href="./files/progress-report.pdf" target="_blank" class="hover:underline">Download PDF</a></li>
+          <li>Resource Plan: <a href="./files/resource-plan.xlsx" target="_blank" class="hover:underline">Download Excel</a></li>
+        </ul>
+      </div>
     </section>
   </main>
 
-  <footer class="bg-white shadow-inner p-4 mt-16">
-    <div class="container mx-auto text-center text-sm text-gray-600">
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white py-6">
+    <div class="container mx-auto text-center text-sm">
       <p>© 2025 Gonzalo Garzon. All rights reserved.</p>
-      <p>Contact: <a href="mailto:tato_garzon@hotmail.com" class="hover:text-blue-500">tato_garzon@hotmail.com</a> | <a href="tel:+61418827267" class="hover:text-blue-500">+61 418 827 267</a></p>
+      <p>Contact: <a href="mailto:tato_garzon@hotmail.com" class="underline">tato_garzon@hotmail.com</a> | <a href="tel:+61418827267" class="underline">+61 418 827 267</a></p>
     </div>
   </footer>
 
-  <!-- Tab switching script -->
+  <!-- Scripts -->
   <script>
-    const tabs = ['intro', 'post-sale', 'purchasing', 'site-manager'];
-    tabs.forEach(tab => {
-      document.getElementById('tab-' + tab).addEventListener('click', () => {
-        tabs.forEach(t => document.getElementById(t).classList.add('hidden'));
-        document.getElementById(tab).classList.remove('hidden');
-      });
+    // Tab logic + active indicator
+    const tabs = [
+      { btn: 'tab-intro-btn', content: 'tab-intro' },
+      { btn: 'tab-post-btn', content: 'tab-post' },
+      { btn: 'tab-purchasing-btn', content: 'tab-purchasing' },
+      { btn: 'tab-site-btn', content: 'tab-site' }
+    ];
+    function activate(btnId, contentId) {
+      // highlight active menu
+      document.querySelectorAll('#menu-btns button').forEach(b => b.classList.remove('underline'));
+      document.getElementById(btnId).classList.add('underline');
+      // show content
+      tabs.forEach(t => document.getElementById(t.content).classList.remove('active'));
+      document.getElementById(contentId).classList.add('active');
+    }
+    tabs.forEach(({btn,content}) => {
+      document.getElementById(btn).addEventListener('click', () => activate(btn, content));
     });
+    // intro links
+    document.getElementById('link-post-btn').addEventListener('click', () => activate('tab-post-btn','tab-post'));
+    document.getElementById('link-purchasing-btn').addEventListener('click', () => activate('tab-purchasing-btn','tab-purchasing'));
+    document.getElementById('link-site-btn').addEventListener('click', () => activate('tab-site-btn','tab-site'));
+    // Dark mode toggle
+    document.getElementById('dark-toggle').addEventListener('click', () => document.documentElement.classList.toggle('dark'));
+    // IntersectionObserver for fade-in
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('appear');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    // To disable animations, comment out the above IntersectionObserver block.
   </script>
 </body>
 </html>
