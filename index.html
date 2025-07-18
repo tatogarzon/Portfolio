@@ -18,29 +18,24 @@
     /* Scroll animations */
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
     .fade-in.appear { opacity: 1; transform: translateY(0); }
-    /* Dark mode */
-    .dark body { background-color: #1a202c; color: #e2e8f0; }
-    .dark header { background-color: #2d3748; }
-    .dark footer { background-color: #2d3748; }
   </style>
 </head>
-<body class="flex flex-col h-full bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
-  <!-- Header with tabs and dark toggle -->
-  <header class="bg-blue-900 text-white dark:bg-gray-800">
+<body class="flex flex-col h-full bg-gray-100 text-gray-800">
+  <!-- Header with tabs -->
+  <header class="bg-blue-900 text-white">
     <div class="container mx-auto flex items-center justify-between p-4">
-      <div class="flex items-center space-x-4">
-        <button id="tab-intro-btn" class="focus:outline-none text-white" aria-label="Home">
-          <img src="./suitcase-logo.png" alt="Home" class="h-10 w-10 object-contain" />
-        </button>
-      </div>
+      <!-- Logo on the left -->
+      <button id="tab-intro-btn" class="focus:outline-none">
+        <img src="./suitcase-logo.png" alt="Home" class="h-10 w-10 object-contain" />
+      </button>
+      <!-- Menu items on the right -->
       <nav>
-        <ul id="menu-btns" class="flex space-x-6">
-          <li><button id="tab-post-btn" class="hover:text-blue-300 focus:outline-none text-gray-200">Post-Sales Engineer</button></li>
-          <li><button id="tab-purchasing-btn" class="hover:text-blue-300 focus:outline-none text-gray-200">Purchasing Assistant</button></li>
-          <li><button id="tab-site-btn" class="hover:text-blue-300 focus:outline-none text-gray-200">Site Manager</button></li>
+        <ul id="menu-btns" class="flex items-center space-x-6">
+          <li><button id="tab-post-btn" class="hover:text-blue-300 focus:outline-none">Post-Sales Engineer</button></li>
+          <li><button id="tab-purchasing-btn" class="hover:text-blue-300 focus:outline-none">Purchasing Assistant</button></li>
+          <li><button id="tab-site-btn" class="hover:text-blue-300 focus:outline-none">Site Manager</button></li>
         </ul>
       </nav>
-      <button id="dark-toggle" class="ml-4 focus:outline-none text-gray-200 hover:text-white" aria-label="Toggle Dark Mode">🌓</button>
     </div>
   </header>
 
@@ -53,15 +48,15 @@
       <div class="space-y-8 max-w-xl mx-auto">
         <div class="fade-in">
           <h2 id="link-post-btn" class="text-2xl font-semibold hover:text-blue-500 cursor-pointer">Post-Sales Engineer</h2>
-          <p class="text-gray-600 dark:text-gray-300">Managed warranty processes, coordinated repair teams, and ensured client satisfaction in luxury residential developments.</p>
+          <p class="text-gray-600">Managed warranty processes, coordinated repair teams, and ensured client satisfaction in luxury residential developments.</p>
         </div>
         <div class="fade-in">
           <h2 id="link-purchasing-btn" class="text-2xl font-semibold hover:text-blue-500 cursor-pointer">Purchasing Assistant</h2>
-          <p class="text-gray-600 dark:text-gray-300">Sourced materials, conducted supplier analysis, and optimized inventory for construction projects.</p>
+          <p class="text-gray-600">Sourced materials, conducted supplier analysis, and optimized inventory for construction projects.</p>
         </div>
         <div class="fade-in">
           <h2 id="link-site-btn" class="text-2xl font-semibold hover:text-blue-500 cursor-pointer">Site Manager</h2>
-          <p class="text-gray-600 dark:text-gray-300">Led on-site teams, enforced safety protocols, and ensured project milestones were met on time and within budget.</p>
+          <p class="text-gray-600">Led on-site teams, enforced safety protocols, and ensured project milestones were met on time and within budget.</p>
         </div>
       </div>
     </section>
@@ -168,8 +163,6 @@
     document.getElementById('link-post-btn').addEventListener('click', () => activate('tab-post-btn','tab-post'));
     document.getElementById('link-purchasing-btn').addEventListener('click', () => activate('tab-purchasing-btn','tab-purchasing'));
     document.getElementById('link-site-btn').addEventListener('click', () => activate('tab-site-btn','tab-site'));
-    // Dark mode toggle
-    document.getElementById('dark-toggle').addEventListener('click', () => document.documentElement.classList.toggle('dark'));
     // IntersectionObserver for fade-in
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => {
@@ -177,7 +170,6 @@
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    // To disable animations, comment out the above IntersectionObserver block.
   </script>
 </body>
 </html>
