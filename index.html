@@ -48,7 +48,7 @@
       <div class="space-y-8 max-w-xl mx-auto">
         <div class="fade-in">
           <h2 id="link-post-btn" class="text-2xl font-semibold hover:text-blue-500 cursor-pointer">Post-Sales Engineer</h2>
-          <p class="text-gray-600">Managed warranty processes, coordinated repair teams, and ensured client satisfaction in luxury residential developments.</p>
+          <p class="text-gray-300 text-gray-600">Managed warranty processes, coordinated repair teams, and ensured client satisfaction in luxury residential developments.</p>
         </div>
         <div class="fade-in">
           <h2 id="link-purchasing-btn" class="text-2xl font-semibold hover:text-blue-500 cursor-pointer">Purchasing Assistant</h2>
@@ -154,7 +154,10 @@
       document.getElementById(btnId).classList.add('underline');
       // show content
       tabs.forEach(t => document.getElementById(t.content).classList.remove('active'));
-      document.getElementById(contentId).classList.add('active');
+      const section = document.getElementById(contentId);
+      section.classList.add('active');
+      // scroll to section top
+      section.scrollIntoView({ behavior: 'smooth' });
     }
     tabs.forEach(({btn,content}) => {
       document.getElementById(btn).addEventListener('click', () => activate(btn, content));
